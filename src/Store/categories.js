@@ -19,10 +19,8 @@ export default (state = initialState, action) => {
 
   switch (type) {
     case "changeActiveCat":
-        let categories = state.categories;
+      let categories = state.categories;
       return { categories, activeCategory: payload };
-    case "RESET":
-      return initialState;
     default:
       return state;
   }
@@ -33,11 +31,5 @@ export const changeActiveCat = (name) => {
   return {
     type: "changeActiveCat",
     payload: name,
-  };
-};
-
-export const reset = () => {
-  return {
-    type: "RESET",
   };
 };
