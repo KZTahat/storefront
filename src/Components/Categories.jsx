@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
-import { changeActiveCat, reset } from "../Store/categories";
+import { changeActiveCat } from "../Store/categories";
+import "./components.css";
+
 function Categories(props) {
   return (
     <>
@@ -9,7 +11,7 @@ function Categories(props) {
             return (
               <li
                 key={category.normalizedName}
-                className='categoriesList'
+                className="categoriesList"
                 onClick={() => props.changeActiveCat(category.normalizedName)}
               >
                 {category.normalizedName}
@@ -25,6 +27,6 @@ const mapStateToProps = (state) => ({
   categories: state.categories,
 });
 
-const mapDispatchToProps = { changeActiveCat, reset };
+const mapDispatchToProps = { changeActiveCat };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);
