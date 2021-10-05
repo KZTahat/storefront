@@ -59,11 +59,17 @@ export default (state = initialState, action) => {
       state.products.map((product) => {
         if (product.name == action.payload && !state.cart.includes(product)) {
           cart.push(product);
+          product.count = product.count - 1;
         }
       });
       return { products, cart };
     case "REMOVEFROMCART":
-      products = state.products;
+      products = state.products.map((product) => {
+        if (product.name === action.payload) {
+          product.count = product.count + 1;
+        }
+        return product;
+      });
       cart = state.cart.filter((item) => {
         if (item.name !== action.payload) {
           return item;
