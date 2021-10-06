@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { changeActiveCat } from "../Store/categories";
+import { changeActiveCat } from "../Store/categories.store";
 import "./components.css";
 
 function Categories(props) {
