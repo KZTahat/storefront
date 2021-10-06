@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { removeFromCart } from "../Store/products";
+import { removeFromCart } from "../Store/products.store";
 import "./components.css";
 
 function SimpleCart(props) {

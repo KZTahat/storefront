@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addToCart } from "../Store/products";
+import { addToCart } from "../Store/products.store";
 import "./components.css";
 import {
   Card,
@@ -15,13 +15,13 @@ function Products(props) {
       <div id="productsContainer">
         <h1 className="productsHeader">{props.categories.activeCategory}</h1>
         {props.categories.categories.map((category) => {
-          if (category.normalizedName == props.categories.activeCategory) {
+          if (category.normalizedName === props.categories.activeCategory) {
             return <h4 className="productsHeader">{category.description}</h4>;
           }
         })}
         <div>
           {props.products.products.map((product) => {
-            if (product.category == props.categories.activeCategory) {
+            if (product.category === props.categories.activeCategory) {
               return (
                 <Card sx={{ maxWidth: 345 }} className="card">
                   <CardMedia
